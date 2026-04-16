@@ -530,6 +530,30 @@
         margin-top: 0.9rem;
       }
 
+      .proj-roadmap {
+        margin-top: 1.5rem;
+        padding-top: 1.25rem;
+        border-top: 1px solid var(--border);
+      }
+      .proj-roadmap-label {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.52rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 0.75rem;
+      }
+      .proj-roadmap p {
+        font-size: 0.9rem;
+        font-weight: 300;
+        line-height: 1.7;
+        color: var(--muted);
+        margin-bottom: 0.6rem;
+      }
+      .proj-roadmap p:last-child {
+        margin-bottom: 0;
+      }
+
       .proj-links {
         display: flex;
         flex-direction: row;
@@ -938,12 +962,27 @@
               <span class="tag">Cloudflare</span>
             </div>
             <p class="proj-desc">
-              Bare-metal PaaS with 70% cost savings over Railway/Vercel. Redis
-              job queue drives async server provisioning; PostgreSQL
-              LISTEN/NOTIFY triggers auto-redeployments. Go agent on each
-              instance manages Docker over token-authenticated HTTP. New stack
-              live in under 3 minutes.
+              infrastructure deployment platform built to give full control over
+              infrastructure at a fraction of typical PaaS cost. Redis-backed
+              jobs handle asynchronous provisioning, PostgreSQL LISTEN/NOTIFY
+              drives automatic redeployments, and a Go agent on each machine
+              manages Docker over authenticated HTTP. New stacks can be brought
+              online in under three minutes, with the platform designed to grow
+              beyond simple app deployment.
             </p>
+            <div class="proj-roadmap">
+              <p class="proj-roadmap-label">Roadmap</p>
+              <p>
+                Aro-script is a declarative configuration layer for defining an
+                entire platform, from infrastructure and containers to routing,
+                load balancing, and deployment behavior.
+              </p>
+              <p>
+                Through reusable templates, it can serve anyone from a simple
+                WordPress site to complex distributed systems, making the
+                platform flexible enough to work at any scale.
+              </p>
+            </div>
           </div>
 
           <div class="project-item reveal">
@@ -974,7 +1013,7 @@
             </div>
             <p class="proj-desc">
               Real-time multiplayer music trivia over WebSockets. Built with a
-              focus on session recovery — handles disconnects and restores game
+              focus on session recovery, handles disconnects and restores game
               state so players never lose progress.
             </p>
           </div>
@@ -1017,7 +1056,8 @@
             <p class="proj-desc">
               Aggregates government safety data and purchasing power parity to
               surface the highest-value travel destinations for your budget and
-              currency.
+              currency. Will have a 'Beerometer', to give a quick showcase of
+              what you can expect something to cost in another region/country.
             </p>
           </div>
         </div>
