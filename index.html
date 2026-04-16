@@ -242,9 +242,14 @@
         border: 1px solid var(--border);
         opacity: 0;
         transform: translateY(10px);
-        transition: opacity 0.9s ease 0.4s, transform 0.9s ease 0.4s;
+        transition:
+          opacity 0.9s ease 0.4s,
+          transform 0.9s ease 0.4s;
       }
-      body.ready .hero-side-photo { opacity: 1; transform: none; }
+      body.ready .hero-side-photo {
+        opacity: 1;
+        transform: none;
+      }
 
       .hero-name-row {
         display: flex;
@@ -799,7 +804,11 @@
             </div>
           </div>
           <div class="hero-right">
-            <img src="me3.jpeg" alt="Aaron in the Alps" class="hero-side-photo" />
+            <img
+              src="me3.jpeg"
+              alt="Aaron in the Alps"
+              class="hero-side-photo"
+            />
           </div>
         </div>
       </section>
@@ -837,7 +846,6 @@
                 and understand what happens from the electrical signals on the
                 PCB up to what's displayed in a browser.
               </p>
-
             </div>
 
             <div class="about-sidebar stagger">
