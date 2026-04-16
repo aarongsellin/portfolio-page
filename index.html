@@ -103,8 +103,8 @@
 
       .intro-name {
         font-family: "Playfair Display", serif;
-        font-size: clamp(1.6rem, 5vw, 3.5rem);
-        color: #09090b;
+        font-size: clamp(2.5rem, 7vw, 5.5rem);
+        color: #fafafa;
         font-weight: 400;
         letter-spacing: 0.05em;
         opacity: 0;
@@ -115,7 +115,7 @@
         font-size: 0.62rem;
         letter-spacing: 0.28em;
         text-transform: uppercase;
-        color: #3f3f46;
+        color: #71717a;
         opacity: 0;
         animation: fadeUp 0.8s var(--ease) 1.05s forwards;
       }
@@ -1014,27 +1014,18 @@
         const INTRO_HOLD = 2350; // ms to hold before sliding away
         const INTRO_OUT = 1200; // ms matching CSS transition duration
 
-        const skipIntro = sessionStorage.getItem("ag_v");
-
         function revealContent() {
           document.body.classList.add("ready");
         }
 
-        if (skipIntro) {
-          intro.style.display = "none";
+        setTimeout(() => {
+          intro.classList.add("away");
           site.classList.add("visible");
-          revealContent();
-        } else {
-          sessionStorage.setItem("ag_v", "1");
           setTimeout(() => {
-            intro.classList.add("away");
-            site.classList.add("visible");
-            setTimeout(() => {
-              intro.style.display = "none";
-              revealContent();
-            }, INTRO_OUT);
-          }, INTRO_HOLD);
-        }
+            intro.style.display = "none";
+            revealContent();
+          }, INTRO_OUT);
+        }, INTRO_HOLD);
 
         /* ── Nav scroll ──────────────────────────── */
         window.addEventListener(
