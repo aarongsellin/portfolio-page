@@ -77,14 +77,32 @@
         background: #09090b;
         z-index: 10000;
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
         justify-content: center;
-        gap: 1.1rem;
+        gap: 2.5rem;
         transition: transform 1.2s cubic-bezier(0.76, 0, 0.24, 1);
       }
       #intro.away {
         transform: translateY(-100%);
+      }
+
+      .intro-photo {
+        width: clamp(200px, 15vw, 200px);
+        height: clamp(200px, 15vw, 200px);
+        border-radius: 80%;
+        object-fit: cover;
+        object-position: center middle;
+        border: 1px solid #27272a;
+        opacity: 0;
+        animation: fadeUp 0.9s var(--ease) 0.6s forwards;
+        flex-shrink: 0;
+      }
+
+      .intro-text {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
       }
 
       .intro-rule {
@@ -197,6 +215,14 @@
         flex-direction: column;
         justify-content: flex-end;
         padding: 8rem 3rem 5.5rem;
+        position: relative;
+      }
+
+      .hero-name-row {
+        display: flex;
+        align-items: flex-end;
+        gap: 3rem;
+        margin-bottom: 3rem;
       }
 
       .hero-eyebrow {
@@ -218,7 +244,6 @@
         font-weight: 400;
         line-height: 1;
         letter-spacing: -0.02em;
-        margin-bottom: 3rem;
       }
 
       /* mask-reveal per word */
@@ -342,6 +367,18 @@
         align-items: start;
       }
 
+      .about-photo {
+        width: 100%;
+        max-width: 360px;
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
+        object-position: center 30%;
+        border-radius: 8px;
+        border: 1px solid var(--border);
+        margin: 0 auto 2.5rem;
+        display: block;
+      }
+
       .about-bio p {
         font-size: 1rem;
         font-weight: 300;
@@ -397,8 +434,6 @@
         background: var(--surface);
         border-top: 1px solid var(--border);
         border-bottom: 1px solid var(--border);
-      }
-      #projects .section-inner {
       }
 
       .project-item {
@@ -689,20 +724,16 @@
     </style>
   </head>
   <body>
-    <!-- ════════════════════════════════════
-       INTRO OVERLAY
-  ════════════════════════════════════ -->
     <div id="intro" aria-hidden="true">
-      <div class="intro-rule"></div>
-      <p class="intro-name">Aaron G. Sellin</p>
-      <p class="intro-sub">Software Engineer</p>
+      <img src="me.jpeg" alt="Aaron G. Sellin" class="intro-photo" />
+      <div class="intro-text">
+        <div class="intro-rule"></div>
+        <p class="intro-name">Aaron G. Sellin</p>
+        <p class="intro-sub">Software Engineer</p>
+      </div>
     </div>
 
-    <!-- ════════════════════════════════════
-       SITE
-  ════════════════════════════════════ -->
     <div id="site">
-      <!-- NAV -->
       <nav id="nav" role="navigation" aria-label="Main navigation">
         <a href="#hero" class="nav-logo">Aaron G. Sellin</a>
         <ul class="nav-links">
@@ -712,14 +743,15 @@
         </ul>
       </nav>
 
-      <!-- ─── HERO ──────────────────────────────── -->
       <section id="hero" aria-labelledby="hero-heading">
         <p class="hero-eyebrow">aarongsellin.dev</p>
 
-        <h1 class="hero-name" id="hero-heading">
-          <span class="hero-word"><span>Aaron</span></span>
-          <span class="hero-word"><span>G.&nbsp;Sellin</span></span>
-        </h1>
+        <div class="hero-name-row">
+          <h1 class="hero-name" id="hero-heading">
+            <span class="hero-word"><span>Aaron</span></span>
+            <span class="hero-word"><span>G.&nbsp;Sellin</span></span>
+          </h1>
+        </div>
 
         <p class="hero-desc">
           Software engineer based in Sweden, building systems that work at
@@ -737,7 +769,6 @@
         </div>
       </section>
 
-      <!-- ─── ABOUT ─────────────────────────────── -->
       <section id="about" class="section-wrap">
         <div class="section-inner">
           <div class="kicker">
@@ -746,7 +777,6 @@
           </div>
 
           <div class="about-grid">
-            <!-- Bio -->
             <div class="about-bio reveal">
               <p>
                 Software engineer at
@@ -774,7 +804,6 @@
               </p>
             </div>
 
-            <!-- Sidebar facts -->
             <div class="about-sidebar stagger">
               <div class="fact reveal">
                 <h5>Currently</h5>
@@ -814,7 +843,6 @@
         </div>
       </section>
 
-      <!-- ─── PROJECTS ───────────────────────────── -->
       <section id="projects" class="section-wrap">
         <div class="section-inner">
           <div class="kicker">
@@ -822,7 +850,6 @@
             <hr />
           </div>
 
-          <!-- Arodeploy -->
           <div class="project-item reveal">
             <div class="proj-header">
               <h3 class="proj-name">Arodeploy</h3>
@@ -862,7 +889,6 @@
             </p>
           </div>
 
-          <!-- Hit Trivia -->
           <div class="project-item reveal">
             <div class="proj-header">
               <h3 class="proj-name">Hit Trivia</h3>
@@ -896,7 +922,6 @@
             </p>
           </div>
 
-          <!-- Voyarate -->
           <div class="project-item reveal">
             <div class="proj-header">
               <h3 class="proj-name">
@@ -941,9 +966,13 @@
         </div>
       </section>
 
-      <!-- ─── CONTACT ───────────────────────────── -->
       <section id="contact" class="section-wrap">
         <div class="contact-center">
+          <img
+            src="me2.jpeg"
+            alt="Aaron at a Malmö Redhawks game"
+            class="about-photo"
+          />
           <p class="contact-kicker">03 / Contact</p>
           <h2 class="contact-heading reveal">
             Interested in<br />working together?
@@ -952,7 +981,6 @@
             Whether you have a project in mind, a role to fill, or just want to
             say hello. I'd love to hear from you.
           </p>
-          <!-- TODO: update with your actual email address -->
           <a
             href="mailto:aaron.gotthardsson@gmail.com"
             class="contact-email reveal"
@@ -960,7 +988,6 @@
             aaron.gotthardsson@gmail.com
           </a>
           <ul class="social-row reveal">
-            <!-- TODO: add your GitHub username to the URL -->
             <li>
               <a
                 href="https://github.com/aarongsellin"
@@ -981,13 +1008,11 @@
         </div>
       </section>
 
-      <!-- FOOTER -->
       <footer>
         <p>© 2026 Aaron G. Sellin. All rights reserved.</p>
         <p>aarongsellin.dev</p>
       </footer>
     </div>
-    <!-- /#site -->
 
     <script>
       (() => {
@@ -997,9 +1022,8 @@
         const site = document.getElementById("site");
         const nav = document.getElementById("nav");
 
-        /* ── Intro animation ─────────────────────── */
-        const INTRO_HOLD = 2350; // ms to hold before sliding away
-        const INTRO_OUT = 1200; // ms matching CSS transition duration
+        const INTRO_HOLD = 2350;
+        const INTRO_OUT = 1200;
 
         function revealContent() {
           document.body.classList.add("ready");
@@ -1014,7 +1038,6 @@
           }, INTRO_OUT);
         }, INTRO_HOLD);
 
-        /* ── Nav scroll ──────────────────────────── */
         window.addEventListener(
           "scroll",
           () => {
@@ -1023,7 +1046,6 @@
           { passive: true },
         );
 
-        /* ── Scroll reveal ───────────────────────── */
         const revEls = document.querySelectorAll(".reveal");
         const io = new IntersectionObserver(
           (entries) => {
