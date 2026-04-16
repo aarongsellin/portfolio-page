@@ -701,6 +701,15 @@
         #hero {
           padding: 7rem 1.75rem 4.5rem;
         }
+        .hero-inner {
+          flex-direction: column-reverse;
+          align-items: flex-start;
+          gap: 2rem;
+        }
+        .hero-side-photo {
+          width: clamp(120px, 40vw, 220px);
+          aspect-ratio: 2 / 3;
+        }
         .section-wrap {
           padding: 5.5rem 1.75rem;
         }
@@ -752,6 +761,9 @@
         }
         #hero {
           justify-content: center;
+        }
+        .hero-side-photo {
+          width: clamp(100px, 35vw, 160px);
         }
       }
     </style>
@@ -1023,7 +1035,7 @@
           </h2>
           <p class="contact-sub reveal">
             Whether you have a project in mind, a role to fill, or just want to
-            say hello. I'd love to hear from you.
+            say hello. I'd like to hear from you.
           </p>
           <a
             href="mailto:aaron.gotthardsson@gmail.com"
