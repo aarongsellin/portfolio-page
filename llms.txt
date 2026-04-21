@@ -1,0 +1,26 @@
+# Aaron G. Sellin
+
+> Software engineer based in Sweden, building systems that work at scale. Broadcast hardware control, developer infrastructure, and consumer products.
+
+Aaron G. Sellin is a software engineer currently working at BST Devices (Aug 2023 – present), building low-level control systems for Sony, Panasonic, and Blackmagic broadcast hardware. He has shipped 20+ features end-to-end and travelled to 4+ countries for on-site client support, system integration, and hands-on delivery.
+
+Stack: Go, Python, JavaScript, TypeScript, PostgreSQL, CouchDB, MinIO, Docker.
+Languages: Swedish (native), English (fluent), German and Danish (conversational).
+
+Freelance: auditing and hardening web applications — reviewing generated code for security gaps (exposed API keys, missing auth guards, insecure data flows, OWASP Top 10 issues) and advising on fixes before going live.
+
+## Pages
+
+- [Home](https://www.aarongsellin.dev/): Portfolio homepage with hero, about, projects, and contact sections.
+
+## Projects
+
+- [Arodeploy](https://www.arodeploy.com): Infrastructure deployment platform built for full control at a fraction of typical PaaS cost. Redis-backed async job queue, PostgreSQL LISTEN/NOTIFY for automatic redeployments, Go agent per machine managing Docker over authenticated HTTP. Stack: Go, TypeScript, React, PostgreSQL, Redis, Docker, Caddy, Hetzner, Grafana, Loki, Cloudflare.
+- [Hit Trivia](https://www.hittrivia.com): Real-time multiplayer music trivia over WebSockets with session recovery — handles disconnects and restores game state. Stack: Java, Spring Boot, Vue.js, WebSockets, Nx, Docker, Apple MusicKit.
+- Voyarate (under construction): Aggregates government safety data and purchasing power parity to surface highest-value travel destinations for a given budget and currency. Stack: Next.js, Arodeploy.
+
+## Contact
+
+- Email: aaron.gotthardsson@gmail.com
+- GitHub: https://github.com/aarongsellin
+- LinkedIn: https://www.linkedin.com/in/aaron-gotthardsson-sellin/
