@@ -189,27 +189,14 @@ body::after {
    HERO
 ═══════════════════════════════════════ */
 #hero {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
   padding: 8rem 3rem 5.5rem;
-  position: relative;
 }
 
 .hero-inner {
   display: flex;
+  justify-content: center;
   align-items: center;
   gap: 2rem;
-}
-
-.hero-left {
-  flex: 1;
-  min-width: 0;
-}
-
-.hero-right {
-  flex-shrink: 0;
 }
 
 .hero-side-photo {
@@ -225,6 +212,7 @@ body::after {
     opacity 0.9s ease 0.4s,
     transform 0.9s ease 0.4s;
 }
+
 body.ready .hero-side-photo {
   opacity: 1;
   transform: none;
@@ -235,20 +223,6 @@ body.ready .hero-side-photo {
   align-items: flex-end;
   gap: 3rem;
   margin-bottom: 3rem;
-}
-
-.hero-eyebrow {
-  font-size: 0.62rem;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: var(--muted);
-
-  margin-bottom: 2.5rem;
-  opacity: 0;
-  transform: translateY(8px);
-  transition:
-    opacity 0.75s ease 0s,
-    transform 0.75s ease 0s;
 }
 
 .hero-name {
@@ -640,6 +614,95 @@ body.ready .hero-word > span {
   display: block;
 }
 
+.proj-card-preview--placeholder {
+  background: #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.proj-placeholder-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  border: 1px dashed var(--border);
+  margin: 1rem;
+}
+
+.proj-placeholder-name {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #3f3f46;
+}
+/* ─── CTA CARD ─────────────────────────────── */
+.proj-card--cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: inherit;
+  background: transparent;
+  border: 1px dashed var(--border);
+  transition:
+    border-color 0.25s ease,
+    background 0.25s ease,
+    transform 0.25s var(--ease);
+  min-height: 200px;
+}
+.proj-card--cta:hover {
+  border-color: var(--accent);
+  border-style: solid;
+  background: var(--surface);
+  box-shadow: none;
+  transform: translate(-2px, -2px);
+}
+
+.proj-cta-inner {
+  padding: 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+}
+.proj-cta-label {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.proj-cta-heading {
+  font-family: "Playfair Display", serif;
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--text);
+}
+.proj-cta-sub {
+  font-size: 0.85rem;
+  font-weight: 300;
+  color: var(--muted);
+  line-height: 1.7;
+  max-width: 220px;
+}
+.proj-cta-link {
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-top: 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.proj-card--cta:hover .proj-cta-link {
+  color: var(--text);
+}
 .proj-card-img {
   width: 100%;
   height: 100%;
