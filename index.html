@@ -79,17 +79,7 @@
               <div class="proj-card-body">
                 <div class="proj-card-title-row">
                   <h3 class="proj-card-name">Arodeploy</h3>
-                  <a
-                    href="https://www.arodeploy.com"
-                    class="proj-link"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Live
-                    <svg viewBox="0 0 24 24">
-                      <path d="M7 17L17 7M17 7H7M17 7v10" />
-                    </svg>
-                  </a>
+                  <span class="proj-status">Maintenance</span>
                 </div>
                 <p class="proj-card-desc">
                   Deploy and manage your own infrastructure with full control,
@@ -124,17 +114,7 @@
               <div class="proj-card-body">
                 <div class="proj-card-title-row">
                   <h3 class="proj-card-name">Hit Trivia</h3>
-                  <a
-                    href="https://www.hittrivia.com"
-                    class="proj-link"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Live
-                    <svg viewBox="0 0 24 24">
-                      <path d="M7 17L17 7M17 7H7M17 7v10" />
-                    </svg>
-                  </a>
+                  <span class="proj-status">Maintenance</span>
                 </div>
                 <p class="proj-card-desc">
                   Multiplayer music trivia game with Apple Music SDK. Focused
@@ -287,6 +267,17 @@
         <p>© 2026 Aaron G. Sellin. All rights reserved.</p>
         <p>aarongsellin.dev</p>
       </footer>
+
+      <div class="slide-indicator" aria-label="Portfolio sections">
+        <button
+          class="slide-dot active"
+          type="button"
+          aria-label="Introduction"
+          aria-current="true"
+        ></button>
+        <button class="slide-dot" type="button" aria-label="Projects"></button>
+        <button class="slide-dot" type="button" aria-label="Contact"></button>
+      </div>
     </div>
 
     <script>
@@ -316,7 +307,9 @@
         window.addEventListener(
           "scroll",
           () => {
-            nav.classList.toggle("scrolled", window.scrollY > 55);
+            if (nav) {
+              nav.classList.toggle("scrolled", window.scrollY > 55);
+            }
           },
           { passive: true },
         );
@@ -335,6 +328,71 @@
         );
 
         revEls.forEach((el) => io.observe(el));
+
+        const slideLinks = document.querySelectorAll('a[href^="#"]');
+        slideLinks.forEach((link) => {
+          link.addEventListener("click", (event) => {
+            const target = document.querySelector(link.getAttribute("href"));
+            if (!target) return;
+
+            event.preventDefault();
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "nearest",
+              inline: "start",
+            });
+          });
+        });
+
+        let isHorizontalScrollActive = false;
+        site.addEventListener(
+          "wheel",
+          (event) => {
+            if (
+              window.innerWidth < 961 ||
+              Math.abs(event.deltaY) < Math.abs(event.deltaX)
+            )
+              return;
+
+            event.preventDefault();
+            if (isHorizontalScrollActive) return;
+
+            isHorizontalScrollActive = true;
+            site.scrollBy({ left: event.deltaY, behavior: "smooth" });
+            window.setTimeout(() => {
+              isHorizontalScrollActive = false;
+            }, 450);
+          },
+          { passive: false },
+        );
+
+        const slideDots = document.querySelectorAll(".slide-dot");
+        const updateSlideIndicator = () => {
+          const activeIndex = Math.min(
+            slideDots.length - 1,
+            Math.round(site.scrollLeft / site.clientWidth),
+          );
+
+          slideDots.forEach((dot, index) => {
+            const isActive = index === activeIndex;
+            dot.classList.toggle("active", isActive);
+            dot.toggleAttribute("aria-current", isActive);
+          });
+        };
+
+        slideDots.forEach((dot, index) => {
+          dot.addEventListener("click", () => {
+            site.scrollTo({
+              left: index * site.clientWidth,
+              behavior: "smooth",
+            });
+          });
+        });
+
+        site.addEventListener("scroll", updateSlideIndicator, {
+          passive: true,
+        });
+        updateSlideIndicator();
       })();
     </script>
   </body>
