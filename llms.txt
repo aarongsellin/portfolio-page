@@ -1,8 +1,8 @@
 # Aaron G. Sellin
 
-> Software engineer based in Sweden, building systems that work at scale. Broadcast hardware control, developer infrastructure, and consumer products.
+> Fullstack Developer based in Sweden, building systems that work at scale. Broadcast hardware control, developer infrastructure, and consumer products.
 
-Aaron G. Sellin is a software engineer currently working at BST Devices (Aug 2023 – present), building low-level control systems for Sony, Panasonic, and Blackmagic broadcast hardware. He has shipped 20+ features end-to-end and travelled to 4+ countries for on-site client support, system integration, and hands-on delivery.
+Aaron G. Sellin is a Fullstack Developer currently working at BST Devices (Aug 2023 – present), building low-level control systems for Sony, Panasonic, and Blackmagic broadcast hardware. He has shipped 20+ features end-to-end and travelled to 4+ countries for on-site client support, system integration, and hands-on delivery.
 
 Stack: Go, Python, JavaScript, TypeScript, PostgreSQL, CouchDB, MinIO, Docker.
 Languages: Swedish (native), English (fluent), German and Danish (conversational).
